@@ -24,7 +24,6 @@ public class PersonController {
     @RequestMapping("/getPerson1/{id}")
     @ResponseBody
     public String getPerson1(@PathVariable Integer id) {
-        System.out.println(id);
         Person person = personService.getPersonById(id);
         System.out.println(person);
         return person.toString();
@@ -37,7 +36,6 @@ public class PersonController {
     @RequestMapping("/getPerson2")
     @ResponseBody
     public String getPerson2(Integer id) {
-        System.out.println(id);
         Person person = personService.getPersonById(id);
         System.out.println(person);
         return person.toString();
@@ -50,7 +48,6 @@ public class PersonController {
     @RequestMapping("/getPerson3")
     @ResponseBody
     public String getPerson3(@RequestParam("pid") Integer id) {
-        System.out.println(id);
         Person person = personService.getPersonById(id);
         System.out.println(person);
         return person.toString();
@@ -59,16 +56,15 @@ public class PersonController {
     /***
      * 传输json，用postman模拟
      * {
-     *     "personId": 2,
      *     "personName": "Honoka",
      *     "personAge": 15
      * }
-     * http://127.0.0.1:8080/getPerson4
+     * http://127.0.0.1:8080/insertPerson1
      */
     @RequestMapping("/insertPerson1")
     @ResponseBody
     public String insertPerson1(@RequestBody Person person) {
-        System.out.println(person);
+        personService.insertPerson(person);
         return person.toString();
     }
 
