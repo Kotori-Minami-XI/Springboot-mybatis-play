@@ -12,11 +12,6 @@ public class PersonController {
     @Resource
     private PersonService personService;
 
-    @RequestMapping("insertPerson")
-    public void insertPerson() {
-
-    }
-
     /***
      * Restful风格，需要@PathVariable注明参数
      * http://127.0.0.1:8080/getPerson1/1
@@ -64,6 +59,17 @@ public class PersonController {
     @RequestMapping("/insertPerson1")
     @ResponseBody
     public String insertPerson1(@RequestBody Person person) {
+        personService.insertPerson(person);
+        return person.toString();
+    }
+
+    /***
+     * 提交表单，用postman模拟
+     * http://127.0.0.1:8080/insertPerson2
+     */
+    @RequestMapping("/insertPerson2")
+    @ResponseBody
+    public String insertPerson2(Person person) {
         personService.insertPerson(person);
         return person.toString();
     }

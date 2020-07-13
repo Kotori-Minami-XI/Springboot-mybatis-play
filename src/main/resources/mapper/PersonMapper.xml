@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.Kotori.mapper.PersonMapper">
     <insert id="insertPerson">
-        INSERT INTO `Person` (`personName`, `personAge`) VALUES (#{person.personName}, #{person.personAge})
+        INSERT INTO `Person` (`personName`, `personAge`) VALUES (#{personName}, #{personAge})
     </insert>
 
     <select id="getPersonById" resultType="com.Kotori.domain.Person">
